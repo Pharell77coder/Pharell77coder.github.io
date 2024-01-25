@@ -1,24 +1,28 @@
 "use strict";
 
-//10 variables
-//2 Classes et 2 Function
-//2 Message sur console
 const navData = [
     { title: 'Accueil'},
     { title: 'Competence'},
     { title: 'Portfolio'},
     { title: 'About'},
+    { title: 'Parcours'},
     { title: 'Contact'}
-  ];
+];
+
+function create_section(element, name_id, ecrase = false) {
+    let Element = element; 
+    if (ecrase == true){
+        const Reset = document.getElementById(name_id).innerHTML = "";
+    }
+    const Container = document.getElementById(name_id).innerHTML += Element;
+};
 
 // Code de l'entete
-let headerElement = `
-    <h1>Portfolio</h1><div class="profile">
+create_section(`<h1>Portfolio</h1>
+<div class="profile">
     <span class="fas fa-search"></span>
     <img class="profile-image-header" alt="miskine sa ne marche pas" src="../assets/profil.jpg">
-    <p class="profile-name-header">Lorem ipsum</p></div>
-    `;
-const headerContainer = document.getElementById('header').innerHTML = headerElement;
+</div>`, 'header', true);
 
 //Barre de navigation sur le cote en javascript
 const navContainer = document.getElementById('nav');
@@ -26,7 +30,7 @@ const navElement = document.createElement('ul');
 navData.forEach(ligne => {
     navElement.className = 'nav';
     navElement.innerHTML += `
-      <a href="#${ligne.title}"><li>${ligne.title}</li></a>
+      <li><a href="#${ligne.title}">${ligne.title}</a></li>
     `;
     navContainer.appendChild(navElement);
 });
@@ -44,27 +48,115 @@ const sectionElement = document.createElement('div');
 });
 
 // Code de l'entete
-let accueilElement = `<h2>TITI Pharell</h2> <h3>Etudiant</h3>`;
-const accueilContainer = document.getElementById('Accueil').innerHTML = accueilElement;
+create_section(`<h2>TITI Pharell</h2>
+<h3>Etudiant</h3>`, 'Accueil', true);
 
-// Code Contacte
-let contactElement = `
-    <h2>Contactez-Moi</h2>
-    <form action="/action_page.php" novalidate>
-    <label for="email">Enter your email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <input type="submit" value="Submit"></form>`;
-const contactContainer = document.getElementById('Contact').innerHTML = contactElement;
+// Code competence
+create_section(`<p>faire un tableau</p>`, 'Competence');
+
+// Code portfolio
+create_section( `
+<div class="filters">
+  <span class="item">Tous</span>
+  <span class="item">C</span>
+  <span class="item">C++</span>
+</div>`, 'Portfolio');
+
+const projets = [
+    {title: "Projet c", category: "C", link: "https://github.com"},
+    {title: "Projet c++", category: "C++", link: "https://github.com"} 
+];
+
+const portfolioContainer = document.getElementById('Portfolio');
+
+projets.map(ligne => {
+const cardElement = document.createElement('div');
+    cardElement.className = `portfolio_card`;
+    cardElement.innerHTML = `<span>${ligne.category}</span>
+              <h4>${ligne.title}</h4>
+              <a href=${ligne.link} class="button">
+              <p>Click</p>
+              </a>`;
+    portfolioContainer.appendChild(cardElement);
+});
+
+
+// Code Contact
+create_section( `<h2>Contactez-Moi</h2>
+<form action="/action_page.php" novalidate>
+<label for="email">Enter your email:</label>
+<input type="email" id="email" name="email" required><br><br>
+<input type="submit" value="Submit"></form>`, 'Contact');
+
+// Code de About
+create_section( `<div class="about_card">
+<p>Je suis Titi Pharell, étudiant à Issy les moulineaux, France. Je suis un passionné de programmation informatique et Je programme depuis 2019. J'ai appris <b>PYTHON</b> le SQL le HTML le CSS et le <b>Javascript</b>, lors de mon cursus scolaire et le <b>Java</b> et le React en autodidacte.</p>
+<a href="https://drive.google.com/drive/folders/1riNt38K3F1Ufj-ov-od3xBmWPYXz2PUE?usp=share_link" class="btn">Télécharge mon CV</a>
+</div>`, 'About');
 
 // Code du pied de la page
-let footerElement = `
-    <p>avis de confidentialité du site Web</p> 
-    <p>cookies</p> 
-    <p>légal</p> 
-    <p>lignes directrices pour la participation communautaire</p>
-    `;
-const footerContainer = document.getElementById('footer').innerHTML = footerElement;
+create_section( `<p>avis de confidentialité du site Web</p><p>cookies</p><p>légal</p> 
+<p>lignes directrices pour la participation communautaire</p>`, 'footer', true);
 
-alert("Bonjour");
-console.log("bonjour");
-console.log("Au revoir");
+const resumeData = [
+    
+    {category:"education",
+    year: "2023 - maintenant",
+    title:"BTS SIO Option SLAM",
+    desc:"H3 Hitema - Issy les moulineaux"},
+        
+    {category:"experience",
+    year: "2023 - 2023",
+    title:"Equipier polyvalent",
+    desc:"Mac Donalds - Champs -sur - marne"},
+
+    {category:"education",
+    year: "2022 - 2023",
+    title:"Licence Histoire",
+    desc:"Université Paris Est Créteil - Créteil"},
+    
+    {category:"education",
+    year: "2021 - 2022",
+    title:"Double licence Mathématiques et informatiques ",
+    desc:"Université Gustave eiffel  - Champs-sur-marne"},
+    
+    {category:"education",
+    year: "2018 - 2021",
+    title:"Bacalauréat Mathématiques et Numériques et sciences de l’informatiques",
+    desc:"Lycée René Descartes - Champs-sur-marne"},
+    
+    {category:"education",
+    year: "2014 - 2018",
+    title:"Diplome nationale du Brevet",
+    desc:"Collège Jean Wiener - Champs-sur-marne "},
+    
+    {category:"experience",
+    year: "2018 - 2018",
+    title:"Stagiaire en restauration",
+    desc:"Tablapizza - Noisiel"}
+];
+
+let resumeTable = document.createElement('table');
+let resumeHeader = document.createElement('tr');
+let resumeHeaderCells = ['Type', 'Date', 'Nom', "Lieu"];
+resumeHeaderCells.forEach(cellText => {
+    const cell = document.createElement('th');
+    cell.textContent = cellText;
+    resumeHeader.appendChild(cell);
+  });
+resumeTable.appendChild(resumeHeader);
+
+resumeData.forEach((ligne) => {
+
+const resumeRow = document.createElement('tr');
+const resumeRowCells = [ ligne.category, ligne.year, ligne.title, ligne.desc];
+resumeRowCells.forEach(cellText => {
+    const cell = document.createElement('td');
+    cell.textContent = cellText;
+    resumeRow.appendChild(cell);
+    });
+    resumeTable.appendChild(resumeRow);
+});
+
+const resumeContainer = document.getElementById('Parcours');
+resumeContainer.appendChild(resumeTable);
