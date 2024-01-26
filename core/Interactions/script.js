@@ -4,7 +4,7 @@ const navData = [
     { title: 'Accueil'},
     { title: 'Competence'},
     { title: 'Portfolio'},
-    { title: 'About'},
+    { title: 'Propos'},
     { title: 'Parcours'},
     { title: 'Contact'}
 ];
@@ -16,6 +16,12 @@ function create_section(element, name_id, ecrase = false) {
     }
     const Container = document.getElementById(name_id).innerHTML += Element;
 };
+
+//RESET
+create_section(``, 'header', true);
+create_section(``, 'nav', true);
+create_section(``, 'main', true);
+create_section(``, 'footer', true);
 
 // Code de l'entete
 create_section(`<h1>Portfolio</h1>
@@ -38,7 +44,7 @@ navData.forEach(ligne => {
 //Creation des sections
 const sectionContainer = document.getElementById('main');
 navData.forEach(ligne => {
-const sectionElement = document.createElement('div');
+    const sectionElement = document.createElement('div');
     sectionElement.className = `section ${ligne.title}`;
     sectionElement.id = `${ligne.title}`;
     sectionElement.innerHTML = `
@@ -60,23 +66,26 @@ create_section( `
   <span class="item">Tous</span>
   <span class="item">C</span>
   <span class="item">C++</span>
-</div>`, 'Portfolio');
+  <span class="item">Javascript</span>
+</div>
+<div id="grid_portfolio" class="grid_portfolio"></div>`, 'Portfolio');
 
 const projets = [
     {title: "Projet c", category: "C", link: "https://github.com"},
-    {title: "Projet c++", category: "C++", link: "https://github.com"} 
+    {title: "Projet c++", category: "C++", link: "https://github.com"},
+    {title: "Protfolio", category: "Javascript", link: "https://github.com"} 
 ];
 
-const portfolioContainer = document.getElementById('Portfolio');
+const portfolioContainer = document.getElementById('grid_portfolio');
 
 projets.map(ligne => {
-const cardElement = document.createElement('div');
+    const cardElement = document.createElement('div');
     cardElement.className = `portfolio_card`;
     cardElement.innerHTML = `<span>${ligne.category}</span>
-              <h4>${ligne.title}</h4>
-              <a href=${ligne.link} class="button">
-              <p>Click</p>
-              </a>`;
+            <h4>${ligne.title}</h4>
+            <a href=${ligne.link} class="button">
+            <p>Click</p>
+            </a>`;
     portfolioContainer.appendChild(cardElement);
 });
 
@@ -86,13 +95,13 @@ create_section( `<h2>Contactez-Moi</h2>
 <form action="/action_page.php" novalidate>
 <label for="email">Enter your email:</label>
 <input type="email" id="email" name="email" required><br><br>
-<input type="submit" value="Submit"></form>`, 'Contact');
+<input type="submit" value="Submit"></form>`, 'Contact', true);
 
 // Code de About
 create_section( `<div class="about_card">
 <p>Je suis Titi Pharell, étudiant à Issy les moulineaux, France. Je suis un passionné de programmation informatique et Je programme depuis 2019. J'ai appris <b>PYTHON</b> le SQL le HTML le CSS et le <b>Javascript</b>, lors de mon cursus scolaire et le <b>Java</b> et le React en autodidacte.</p>
 <a href="https://drive.google.com/drive/folders/1riNt38K3F1Ufj-ov-od3xBmWPYXz2PUE?usp=share_link" class="btn">Télécharge mon CV</a>
-</div>`, 'About');
+</div>`, 'Propos');
 
 // Code du pied de la page
 create_section( `<p>avis de confidentialité du site Web</p><p>cookies</p><p>légal</p> 
