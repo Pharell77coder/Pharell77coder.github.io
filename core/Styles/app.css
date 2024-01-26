@@ -12,7 +12,7 @@ html {
 
 body {
     background-color: #ffffff;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -182,13 +182,21 @@ tr:hover {
 }
 
 /* portfolio */
+.grid_portfolio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    gap: 1rem;
+}
+
 .portfolio_card {
+    position: relative;
     background-color: var(--accent-color);
-    padding: 2rem;
-    margin: 1rem;
+    padding: 1rem;
+    margin: 10px;
     border-radius: 5px;
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     color: var(--main-color);
 }
 
@@ -208,10 +216,9 @@ tr:hover {
     color: var(--second-color);
 }
 
-.grid_portfolio {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.875rem;
-    float: left;
+
+.Propos{
+    margin-top: 1rem;
 }
 
 /* Responsitive */

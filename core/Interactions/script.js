@@ -73,7 +73,7 @@ create_section( `
 const projets = [
     {title: "Projet c", category: "C", link: "https://github.com"},
     {title: "Projet c++", category: "C++", link: "https://github.com"},
-    {title: "Protfolio", category: "Javascript", link: "https://github.com"} 
+    {title: "Protfolio", category: "Javascript", link: "https://github.com"}
 ];
 
 const portfolioContainer = document.getElementById('grid_portfolio');
