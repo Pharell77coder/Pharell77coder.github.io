@@ -27,7 +27,7 @@ create_section(``, 'footer', true);
 create_section(`<h1>Portfolio</h1>
 <div class="profile">
     <span class="fas fa-search"></span>
-    <img class="profile-image-header" alt="miskine sa ne marche pas" src="../assets/profil.jpg">
+    <img class="profile-image-header" alt="fonctionnne pas" src="../assets/profil.jpg">
 </div>`, 'header', true);
 
 //Barre de navigation sur le cote en javascript
@@ -58,7 +58,12 @@ create_section(`<h2>TITI Pharell</h2>
 <h3>Etudiant</h3>`, 'Accueil', true);
 
 // Code competence
-create_section(`<p>faire un tableau</p>`, 'Competence');
+create_section( `<div class="about_card card_color"><p>Python - 2019</p></div>
+<div class="about_card card_color"><p>Javascript - 2020</p></div>
+<div class="about_card card_color"><p>React js - 2020</p></div>
+<div class="about_card card_color"><p>Java- 2022</p></div>
+<div class="about_card card_color"><p>C - 2023</p></div>
+<div class="about_card card_color"><p>C++ - 2023</p></div>`, 'Competence');
 
 // Code portfolio
 create_section( `
@@ -71,9 +76,9 @@ create_section( `
 <div id="grid_portfolio" class="grid_portfolio"></div>`, 'Portfolio');
 
 const projets = [
-    {title: "Projet c", category: "C", link: "https://github.com"},
-    {title: "Projet c++", category: "C++", link: "https://github.com"},
-    {title: "Protfolio", category: "Javascript", link: "https://github.com"}
+    {title: "Role player games", category: "C", link: "https://github.com/Pharell77coder/TestProject", img: "../assets/rpg.png"},
+    {title: "Shifumi", category: "C++", link: "https://github.com/Pharell77coder/projet-c-", img: "../assets/shifumi.jpg"},
+    {title: "Protfolio", category: "Javascript", link: "https://github.com/Pharell77coder/projet_web", img: "../assets/code.png"}
 ];
 
 const portfolioContainer = document.getElementById('grid_portfolio');
@@ -83,6 +88,7 @@ projets.map(ligne => {
     cardElement.className = `portfolio_card`;
     cardElement.innerHTML = `<span>${ligne.category}</span>
             <h4>${ligne.title}</h4>
+            <img src=${ligne.img} alt = "fonctionne pas" />
             <a href=${ligne.link} class="button">
             <p>Click</p>
             </a>`;
