@@ -97,11 +97,7 @@ projets.map(ligne => {
 
 
 // Code Contact
-create_section( `<h2>Contactez-Moi</h2>
-<form action="/action_page.php" novalidate>
-<label for="email">Enter your email:</label>
-<input type="email" id="email" name="email" required><br><br>
-<input type="submit" value="Submit"></form>`, 'Contact', true);
+create_section( `<h2>Contactez-Moi</h2>`, 'Contact', true);
 
 // Code de About
 create_section( `<div class="about_card">
