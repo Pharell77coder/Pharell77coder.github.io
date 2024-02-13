@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    height: 55px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--main-color);
+    color: #ffffff;
+    width: 100%;
+}
+
+.footer > p{
+    padding: 16px;
+    color: white;
+}

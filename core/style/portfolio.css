@@ -1,0 +1,49 @@
+.grid_portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.portfolio_card {
+    background-color: #dddddd;
+    border: 1px solid silver;
+    font-family: arial;
+    padding: 15px;
+    margin: 5px;
+    display: inline-block;
+    width: 240px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.portfolio_card img {
+    width: 240px;
+    height: 140px;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .portfolio_card a {
+    color: purple;
+    background-color: transparent;
+    text-decoration: none;
+    float: right;
+  }
+  
+.filters {
+    text-align: center;
+}
+.item{
+    cursor: pointer;
+    transition: .3s;
+    margin: 1rem;
+    padding: 1rem;
+    border-bottom: none 1px var(--second-color);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box; 
+}
+
+.item:hover {
+    color: var(--second-color);
+    border-bottom: solid 1px var(--second-color);
+}

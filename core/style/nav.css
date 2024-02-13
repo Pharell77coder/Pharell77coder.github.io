@@ -1,0 +1,32 @@
+.nav{
+    background-color: #ffffff;
+}
+
+ul.nav {
+    width: 200px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 36px;
+    border-right: solid 1px;
+    padding: 0;
+}
+
+ul.nav li {
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+
+}
+
+ul.nav a{
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+ul.nav li:hover {
+    background-color: #e5e5e5;
+}
